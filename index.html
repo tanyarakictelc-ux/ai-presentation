@@ -29,7 +29,6 @@
             padding: 0; 
         }
         
-        /* สัดส่วน Container: ปรับขนาดเป็น 85% ตามที่ต้องการ */
         .slide-container {
             width: 85vw;
             max-width: 1600px; 
@@ -44,7 +43,6 @@
             box-shadow: 0 0 40px rgba(6, 182, 212, 0.15);
         }
 
-        /* สำหรับมือถือให้แสดงผลเต็มจอ 100% เพื่อประหยัดพื้นที่ */
         @media (max-width: 767px) {
             .slide-container {
                 width: 100vw;
@@ -237,7 +235,6 @@
                         </div>
                     </div>
 
-                    <!-- ปุ่มเอกสารอ้างอิง (ปรับขนาดให้เล็กลง) Tab 1 -->
                     <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
                         <button onclick="openModal('https://drive.google.com/file/d/11tuo_ZoMjCI80tu8QzTGhELbXGGAvv81/preview')" class="flex items-center gap-1.5 md:gap-2 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 px-2.5 py-1 md:px-3 md:py-1 rounded-full border border-slate-700 transition-all text-[9px] md:text-[10px] font-medium">
                             <span class="text-xs md:text-sm">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 1 <span class="text-[7px] md:text-[8px] uppercase tracking-widest ml-1 bg-slate-800 px-1.5 py-0.5 rounded">คลิกขยายดู</span>
@@ -325,7 +322,6 @@
                         </div>
                     </div>
                     
-                    <!-- ปุ่มเอกสารอ้างอิง (ปรับขนาดให้เล็กลง) Tab 2 -->
                     <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
                         <button onclick="openModal('https://drive.google.com/file/d/146be0hhrbmh53PQiw6NmquOsycKWgTr6/preview')" class="flex items-center gap-1.5 md:gap-2 text-slate-400 hover:text-purple-400 hover:bg-slate-800 px-2.5 py-1 md:px-3 md:py-1 rounded-full border border-slate-700 transition-all text-[9px] md:text-[10px] font-medium">
                             <span class="text-xs md:text-sm">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 2 <span class="text-[7px] md:text-[8px] uppercase tracking-widest ml-1 bg-slate-800 px-1.5 py-0.5 rounded">คลิกขยายดู</span>
@@ -333,7 +329,7 @@
                     </div>
                 </div>
 
-                <!-- TAB 3 -->
+                <!-- TAB 3 (ออกแบบเลย์เอาต์แกลเลอรีใหม่) -->
                 <div id="tab3" class="tab-content flex-col gap-3 md:gap-4">
                     <div class="shrink-0 mb-1 md:mb-2">
                         <div class="flex items-center gap-3 mb-1 md:mb-2">
@@ -345,28 +341,34 @@
                     <div class="output-card flex-1 rounded-xl md:rounded-2xl flex flex-col overflow-hidden relative">
                         <div class="flex flex-col md:flex-row h-full p-3 md:p-4 gap-4 md:gap-6 overflow-hidden">
                             
+                            <!-- ฝั่งซ้าย: แกลเลอรีที่จัดเรียงใหม่ -->
                             <div class="w-full md:w-1/2 bg-slate-900/50 rounded-xl p-3 border border-slate-700 overflow-hidden shrink-0 md:shrink flex flex-col">
                                 <div class="text-[10px] font-bold text-pink-400 mb-3 uppercase tracking-widest px-1 shrink-0">🎥 แกลเลอรีสื่อมัลติมีเดีย (Video & Audio)</div>
-                                <div class="flex-1 flex flex-col gap-2 min-h-0"> 
-                                    
-                                    <div class="relative flex-1 rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black group min-h-0">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 pointer-events-none">โจทย์ต้นฉบับ</div>
-                                        <img class="absolute inset-0 w-full h-full object-contain bg-slate-800 transition-transform duration-300 hover:scale-110 cursor-pointer" src="https://lh3.googleusercontent.com/d/1LIN5lesP95W0bBdCGfs2PEn7hRDVtXD7" onclick="openImageViewer(this.src)">
-                                    </div>
-
-                                    <div class="relative flex-[1.5] rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black min-h-0">
+                                
+                                <div class="flex-1 flex flex-col gap-3 min-h-0">
+                                    <!-- ด้านบน: ผลงานวิดีโอ (พื้นที่ใหญ่ที่สุด 2 ส่วน) -->
+                                    <div class="relative flex-[2] rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black min-h-0">
                                         <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md pointer-events-none">ผลงานวิดีโอ (OUTPUT)</div>
                                         <iframe class="absolute inset-0 w-full h-full border-0" src="https://drive.google.com/file/d/1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
 
-                                    <div class="relative shrink-0 h-24 rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black">
-                                        <div class="absolute top-1 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md pointer-events-none">ผลงานเสียง (AUDIO)</div>
-                                        <iframe class="absolute inset-0 w-full h-full border-0 pt-8" src="https://drive.google.com/file/d/1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    <!-- ด้านล่าง: รูปโจทย์ต้นฉบับ และ เสียง แบ่งครึ่ง (พื้นที่ 1 ส่วน) -->
+                                    <div class="relative flex-1 flex gap-3 min-h-0">
+                                        <!-- ภาพโจทย์ -->
+                                        <div class="relative flex-1 rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black group min-h-0">
+                                            <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 pointer-events-none">โจทย์ต้นฉบับ</div>
+                                            <img class="absolute inset-0 w-full h-full object-contain bg-slate-800 transition-transform duration-300 hover:scale-110 cursor-pointer" src="https://lh3.googleusercontent.com/d/1LIN5lesP95W0bBdCGfs2PEn7hRDVtXD7" onclick="openImageViewer(this.src)">
+                                        </div>
+                                        <!-- เสียง -->
+                                        <div class="relative flex-1 rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black min-h-0">
+                                            <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md pointer-events-none">ผลงานเสียง (AUDIO)</div>
+                                            <iframe class="absolute inset-0 w-full h-full border-0 pt-8 md:pt-10" src="https://drive.google.com/file/d/1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
 
+                            <!-- ฝั่งขวา: ทฤษฎี -->
                             <div class="w-full md:w-1/2 flex flex-col overflow-y-auto md:pr-3 shrink-0 md:shrink">
                                 <h3 class="text-lg md:text-xl font-black text-pink-400 mb-2 md:mb-3 leading-tight border-b border-slate-700 pb-2 shrink-0">หลักการสร้างวิดีโอและเสียงด้วย AI</h3>
                                 <div class="space-y-3 md:space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed shrink-0">
@@ -386,7 +388,6 @@
                         </div>
                     </div>
 
-                    <!-- ปุ่มเอกสารอ้างอิง (ปรับขนาดให้เล็กลง) Tab 3 -->
                     <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
                         <button onclick="openModal('https://drive.google.com/file/d/10X2kucr4GFW7_nVANhgGB63VsMrr3CGM/preview')" class="flex items-center gap-1.5 md:gap-2 text-slate-400 hover:text-pink-400 hover:bg-slate-800 px-2.5 py-1 md:px-3 md:py-1 rounded-full border border-slate-700 transition-all text-[9px] md:text-[10px] font-medium">
                             <span class="text-xs md:text-sm">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 3 <span class="text-[7px] md:text-[8px] uppercase tracking-widest ml-1 bg-slate-800 px-1.5 py-0.5 rounded">คลิกขยายดู</span>
@@ -444,7 +445,6 @@
                         </div>
                     </div>
                     
-                    <!-- ปุ่มเอกสารอ้างอิง (ปรับขนาดให้เล็กลง) Tab 4 -->
                     <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
                         <button onclick="openModal('https://drive.google.com/file/d/1coAHcyzcUSUPjuYyIXvygkVHc2qhzkKL/preview')" class="flex items-center gap-1.5 md:gap-2 text-slate-400 hover:text-green-400 hover:bg-slate-800 px-2.5 py-1 md:px-3 md:py-1 rounded-full border border-slate-700 transition-all text-[9px] md:text-[10px] font-medium">
                             <span class="text-xs md:text-sm">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 4 <span class="text-[7px] md:text-[8px] uppercase tracking-widest ml-1 bg-slate-800 px-1.5 py-0.5 rounded">คลิกขยายดู</span>
@@ -493,7 +493,6 @@
                         </div>
                     </div>
                     
-                    <!-- ปุ่มเอกสารอ้างอิง (ปรับขนาดให้เล็กลง) Tab 5 -->
                     <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
                         <button onclick="openModal('https://drive.google.com/file/d/13K7fyEJu6POoRUF7D6vcta8Ri_-fBMdF/preview')" class="flex items-center gap-1.5 md:gap-2 text-slate-400 hover:text-yellow-400 hover:bg-slate-800 px-2.5 py-1 md:px-3 md:py-1 rounded-full border border-slate-700 transition-all text-[9px] md:text-[10px] font-medium">
                             <span class="text-xs md:text-sm">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 5 <span class="text-[7px] md:text-[8px] uppercase tracking-widest ml-1 bg-slate-800 px-1.5 py-0.5 rounded">คลิกขยายดู</span>
