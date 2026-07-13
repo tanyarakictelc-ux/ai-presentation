@@ -29,6 +29,7 @@
             padding: 0; 
         }
         
+        /* สัดส่วน Container: ปรับขนาดเป็น 85% ตามที่ต้องการ */
         .slide-container {
             width: 85vw;
             max-width: 1600px; 
@@ -43,6 +44,7 @@
             box-shadow: 0 0 40px rgba(6, 182, 212, 0.15);
         }
 
+        /* สำหรับมือถือให้แสดงผลเต็มจอ 100% เพื่อประหยัดพื้นที่ */
         @media (max-width: 767px) {
             .slide-container {
                 width: 100vw;
@@ -329,7 +331,7 @@
                     </div>
                 </div>
 
-                <!-- TAB 3 (ออกแบบเลย์เอาต์แกลเลอรีใหม่) -->
+                <!-- TAB 3 (อัปเดตเลย์เอาต์แกลเลอรี) -->
                 <div id="tab3" class="tab-content flex-col gap-3 md:gap-4">
                     <div class="shrink-0 mb-1 md:mb-2">
                         <div class="flex items-center gap-3 mb-1 md:mb-2">
@@ -346,13 +348,7 @@
                                 <div class="text-[10px] font-bold text-pink-400 mb-3 uppercase tracking-widest px-1 shrink-0">🎥 แกลเลอรีสื่อมัลติมีเดีย (Video & Audio)</div>
                                 
                                 <div class="flex-1 flex flex-col gap-3 min-h-0">
-                                    <!-- ด้านบน: ผลงานวิดีโอ (พื้นที่ใหญ่ที่สุด 2 ส่วน) -->
-                                    <div class="relative flex-[2] rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black min-h-0">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md pointer-events-none">ผลงานวิดีโอ (OUTPUT)</div>
-                                        <iframe class="absolute inset-0 w-full h-full border-0" src="https://drive.google.com/file/d/1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                    </div>
-
-                                    <!-- ด้านล่าง: รูปโจทย์ต้นฉบับ และ เสียง แบ่งครึ่ง (พื้นที่ 1 ส่วน) -->
+                                    <!-- ด้านบน: รูปโจทย์ต้นฉบับ และ เสียง แบ่งครึ่ง (พื้นที่ 1 ส่วน) -->
                                     <div class="relative flex-1 flex gap-3 min-h-0">
                                         <!-- ภาพโจทย์ -->
                                         <div class="relative flex-1 rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black group min-h-0">
@@ -364,6 +360,12 @@
                                             <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md pointer-events-none">ผลงานเสียง (AUDIO)</div>
                                             <iframe class="absolute inset-0 w-full h-full border-0 pt-8 md:pt-10" src="https://drive.google.com/file/d/1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                         </div>
+                                    </div>
+
+                                    <!-- ด้านล่าง: ผลงานวิดีโอ (พื้นที่ใหญ่ที่สุด 2 ส่วน) -->
+                                    <div class="relative flex-[2] rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black min-h-0">
+                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md pointer-events-none">ผลงานวิดีโอ (OUTPUT)</div>
+                                        <iframe class="absolute inset-0 w-full h-full border-0" src="https://drive.google.com/file/d/1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
