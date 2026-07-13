@@ -220,17 +220,24 @@
                                         <li><strong class="text-white">Reverse Process:</strong> การดึงความขุ่นมัวออกทีละขั้น ตามคำสั่ง (Prompt) จนได้ภาพใหม่</li>
                                     </ul>
                                 </div>
-                                <!-- Tools & Methods Box -->
+                                
                                 <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
                                     <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
                                     <div class="text-xs text-slate-300 space-y-2">
-                                        <p><strong class="text-cyan-400">เครื่องมือที่ใช้:</strong> Midjourney, DALL-E 3, ChatGPT</p>
+                                        <p><strong class="text-cyan-400">เครื่องมือที่ใช้:</strong> ChatGPT, Gemini</p>
                                         <p><strong class="text-cyan-400">วิธีการ:</strong> เริ่มต้นด้วยการเขียน Prompt แบบ Text-to-Image โดยกำหนดสิ่งที่ต้องการให้ชัดเจน จัดลำดับความสำคัญของคีย์เวิร์ดจากมากไปน้อย เพื่อให้ AI สร้างภาพตั้งต้นที่ตรงกับความต้องการมากที่สุด</p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                    </div>
+
+                    <!-- ปุ่มเอกสารอ้างอิง Tab 1 -->
+                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
+                        <button onclick="openModal('https://drive.google.com/file/d/11tuo_ZoMjCI80tu8QzTGhELbXGGAvv81/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
+                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 1 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
+                        </button>
                     </div>
                 </div>
 
@@ -301,11 +308,11 @@
                                     </ul>
                                     <p><strong class="text-white">ทฤษฎีสี (Color Theory):</strong> การระบุโทนสี (Color Palette) เช่น โทนอุ่น โทนเย็น หรือสีคู่ตรงข้าม (Complementary) ใน Prompt เพื่อควบคุม Mood & Tone และสร้างความโดดเด่นให้กับภาพ</p>
                                 </div>
-                                <!-- Tools & Methods Box -->
+                                
                                 <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
                                     <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
                                     <div class="text-xs text-slate-300 space-y-2">
-                                        <p><strong class="text-purple-400">เครื่องมือที่ใช้:</strong> Midjourney (เน้นการใช้พารามิเตอร์เช่น --ar, --v), DALL-E</p>
+                                        <p><strong class="text-purple-400">เครื่องมือที่ใช้:</strong> ChatGPT, Gemini</p>
                                         <p><strong class="text-purple-400">วิธีการ:</strong> ใช้โครงสร้าง S.E.L.C.S. เป็นแกนหลักในการเขียน Prompt จากนั้นเติมคำศัพท์ทางศิลปะและทฤษฎีสีลงไป เพื่อบังคับให้ AI จัดองค์ประกอบภาพและแสงเงาให้ออกมาเป็นมืออาชีพ</p>
                                     </div>
                                 </div>
@@ -313,9 +320,16 @@
 
                         </div>
                     </div>
+                    
+                    <!-- ปุ่มเอกสารอ้างอิง Tab 2 -->
+                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
+                        <button onclick="openModal('https://drive.google.com/file/d/146be0hhrbmh53PQiw6NmquOsycKWgTr6/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-purple-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
+                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 2 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- TAB 3 (VIDEO & AUDIO) -->
+                <!-- TAB 3 -->
                 <div id="tab3" class="tab-content flex-col gap-3 md:gap-4">
                     <div class="shrink-0 mb-1 md:mb-2">
                         <div class="flex items-center gap-3 mb-1 md:mb-2">
@@ -336,23 +350,16 @@
                                         <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1LIN5lesP95W0bBdCGfs2PEn7hRDVtXD7">
                                     </div>
 
-                                    <!-- 📌 วิดีโอ (ใช้ Video Tag) -->
+                                    <!-- กลับไปใช้ Iframe ต้นฉบับสำหรับ Video -->
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 z-20">ผลงานวิดีโอ (OUTPUT)</div>
-                                        <video class="w-full h-full object-cover relative z-10" controls>
-                                            <source src="https://drive.google.com/uc?export=download&id=1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU" type="video/mp4">
-                                            Browser ของคุณไม่รองรับการเล่นวิดีโอ
-                                        </video>
+                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงานวิดีโอ (OUTPUT)</div>
+                                        <iframe class="w-full h-full border-0" src="https://drive.google.com/file/d/1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
 
-                                    <!-- 📌 เสียง (ใช้ Audio Tag) -->
-                                    <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-slate-800 flex flex-col justify-center items-center p-6">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10">ผลงานเสียง (AUDIO)</div>
-                                        <div class="text-4xl mb-4">🎵</div>
-                                        <audio class="w-full" controls>
-                                            <source src="https://drive.google.com/uc?export=download&id=1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe" type="audio/mpeg">
-                                            Browser ของคุณไม่รองรับการเล่นเสียง
-                                        </audio>
+                                    <!-- กลับไปใช้ Iframe ต้นฉบับสำหรับ Audio -->
+                                    <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black">
+                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงานเสียง (AUDIO)</div>
+                                        <iframe class="w-full h-full border-0" src="https://drive.google.com/file/d/1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
 
                                 </div>
@@ -364,17 +371,24 @@
                                     <p><strong class="text-white">Video Generation:</strong> การเปลี่ยนภาพนิ่งให้เคลื่อนไหว (Image-to-Video) ควบคู่กับการกำหนดมุมกล้องและทิศทาง</p>
                                     <p><strong class="text-white">Audio & Voiceover:</strong> การใช้ AI สังเคราะห์เสียงพูดที่เสมือนจริง มีอารมณ์และจังหวะเป็นธรรมชาติ</p>
                                 </div>
-                                <!-- Tools & Methods Box -->
+                                
                                 <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
                                     <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
                                     <div class="text-xs text-slate-300 space-y-2">
-                                        <p><strong class="text-pink-400">เครื่องมือที่ใช้:</strong> Runway Gen-2, Pika, ElevenLabs, Suno</p>
+                                        <p><strong class="text-pink-400">เครื่องมือที่ใช้:</strong> ChatGPT, Gemini, Suno, Google Flow, Google Flow Music, Google AI Studio</p>
                                         <p><strong class="text-pink-400">วิธีการ:</strong> นำภาพนิ่งที่สร้างเสร็จจาก Step ก่อนหน้ามาเป็นสารตั้งต้น (Image-to-Video) ควบคุมการเคลื่อนไหวผ่าน Text Prompt เล็กน้อย จากนั้นใช้เครื่องมือ Text-to-Speech สังเคราะห์เสียงบรรยายเนื้อหา นำมาประกอบกันให้สมบูรณ์</p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                    </div>
+
+                    <!-- ปุ่มเอกสารอ้างอิง Tab 3 -->
+                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
+                        <button onclick="openModal('https://drive.google.com/file/d/10X2kucr4GFW7_nVANhgGB63VsMrr3CGM/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-pink-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
+                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 3 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
+                        </button>
                     </div>
                 </div>
 
@@ -415,17 +429,24 @@
                                         <li><strong>Velocity:</strong> สื่อสารให้เข้าใจได้รวดเร็วทันที</li>
                                     </ul>
                                 </div>
-                                <!-- Tools & Methods Box -->
+                                
                                 <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
                                     <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
                                     <div class="text-xs text-slate-300 space-y-2">
-                                        <p><strong class="text-green-400">เครื่องมือที่ใช้:</strong> Canva, ChatGPT (สรุปข้อมูล)</p>
+                                        <p><strong class="text-green-400">เครื่องมือที่ใช้:</strong> ChatGPT, Gemini</p>
                                         <p><strong class="text-green-400">วิธีการ:</strong> สั่งให้ AI Language Model สรุปข้อมูลที่ซับซ้อนให้ออกมาเป็น Bullet points จากนั้นนำไปจัดวางบนเลย์เอาต์ตามกฎ 10-20-70 โดยเว้นพื้นที่ว่าง (White space) ให้สายตาได้พัก และคุมสัดส่วนเนื้อหาให้พอดี</p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                    </div>
+                    
+                    <!-- ปุ่มเอกสารอ้างอิง Tab 4 -->
+                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
+                        <button onclick="openModal('https://drive.google.com/file/d/1coAHcyzcUSUPjuYyIXvygkVHc2qhzkKL/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-green-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
+                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 4 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
+                        </button>
                     </div>
                 </div>
 
@@ -444,13 +465,13 @@
                             <div class="w-full md:w-1/2 bg-slate-900/50 rounded-xl p-3 border border-slate-700 overflow-y-auto custom-scrollbar shrink-0 md:shrink">
                                 <div class="text-[10px] font-bold text-yellow-400 mb-3 uppercase tracking-widest px-1">🎥 แกลเลอรีผลงาน (Ethics & Security)</div>
                                 <div class="flex flex-col gap-3 h-full">
-                                    <!-- 📌 วิดีโอ (ใช้ Video Tag) -->
-                                    <div class="relative h-64 md:h-full min-h-[250px] rounded-lg overflow-hidden border border-yellow-500/50 shadow-[0_0_10px_rgba(234,179,8,0.15)] bg-black">
-                                        <div class="absolute top-2 left-2 bg-yellow-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 z-20">ผลงานวิดีโอ</div>
-                                        <video class="w-full h-full object-cover relative z-10" controls>
-                                            <source src="https://drive.google.com/uc?export=download&id=19r_-ej1yHVXvqufIkzALkH4v8bGDqVnS" type="video/mp4">
-                                        </video>
+                                    
+                                    <!-- กลับไปใช้ Iframe ต้นฉบับสำหรับ Video Tab 5 -->
+                                    <div class="relative h-64 md:h-full min-h-[250px] rounded-lg overflow-hidden border border-yellow-500/50 shadow-[0_0_10px_rgba(234,179,8,0.15)] bg-black group">
+                                        <div class="absolute top-2 left-2 bg-yellow-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงานวิดีโอ</div>
+                                        <iframe class="w-full h-full border-0 absolute inset-0" src="https://drive.google.com/file/d/19r_-ej1yHVXvqufIkzALkH4v8bGDqVnS/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -460,7 +481,7 @@
                                     <p><strong class="text-white">ภาพหลอน AI (Hallucination):</strong> AI สร้างข้อมูลที่ไม่มีอยู่จริงหรือบิดเบือนความจริง</p>
                                     <p><strong class="text-white">หลักการ Human in the Loop:</strong> AI เป็นเพียงผู้ช่วย แต่มนุษย์ต้องเป็นผู้ตัดสินใจขั้นสุดท้าย</p>
                                 </div>
-                                <!-- Tools & Methods Box -->
+                                
                                 <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
                                     <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
                                     <div class="text-xs text-slate-300 space-y-2">
@@ -472,10 +493,38 @@
 
                         </div>
                     </div>
+                    
+                    <!-- ปุ่มเอกสารอ้างอิง Tab 5 -->
+                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
+                        <button onclick="openModal('https://drive.google.com/file/d/13K7fyEJu6POoRUF7D6vcta8Ri_-fBMdF/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-yellow-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
+                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 5 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
+                        </button>
+                    </div>
                 </div>
 
             </section>
         </main>
+        
+        <!-- THE MODAL (เอากลับมาคืนแล้วครับ) -->
+        <div id="pdfModal" class="modal-overlay">
+            <div class="flex justify-between items-center mb-4 shrink-0">
+                <div>
+                    <h3 class="text-lg md:text-2xl font-bold text-white tracking-wider">📚 เอกสารอ้างอิง</h3>
+                    <p class="text-slate-400 text-xs md:text-sm">สไลด์ประกอบการอบรมจากท่านอาจารย์</p>
+                </div>
+                <button onclick="closeModal()" class="w-8 h-8 md:w-10 md:h-10 bg-rose-600 hover:bg-rose-500 text-white rounded-full flex items-center justify-center text-lg md:text-xl font-bold transition-colors shadow-lg">
+                    ✕
+                </button>
+            </div>
+            <!-- Iframe Container -->
+            <div class="flex-grow w-full bg-white rounded-xl overflow-hidden border-2 border-slate-700 shadow-2xl relative">
+                <div class="absolute inset-0 flex items-center justify-center text-slate-400 text-sm font-bold bg-slate-100 z-0">
+                    กำลังโหลดเอกสาร...
+                </div>
+                <iframe id="pdfIframe" src class="w-full h-full relative z-10 border-0"></iframe>
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -521,6 +570,24 @@
                 }
                 if (btnEl) btnEl.className = (i === page) ? activeClass : inactiveClass;
             }
+        }
+
+        // ฟังก์ชันเปิด Modal ของเอกสารอ้างอิง
+        function openModal(pdfUrl) {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfIframe');
+            
+            iframe.src = pdfUrl; 
+            modal.classList.add('active');
+        }
+
+        // ฟังก์ชันปิด Modal
+        function closeModal() {
+            const modal = document.getElementById('pdfModal');
+            const iframe = document.getElementById('pdfIframe');
+            
+            modal.classList.remove('active');
+            setTimeout(() => { iframe.src = ''; }, 300);
         }
     </script>
 </body>
