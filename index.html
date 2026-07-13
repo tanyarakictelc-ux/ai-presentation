@@ -18,14 +18,13 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 0; /* Reset padding for mobile */
+            padding: 0; 
         }
         
-        /* สัดส่วน Container แบบ Responsive */
         .slide-container {
             width: 100%;
             max-width: 1280px;
-            height: 100dvh; /* Full height on mobile */
+            height: 100dvh; 
             background-color: #0b1120;
             position: relative;
             overflow: hidden;
@@ -33,7 +32,6 @@
             flex-direction: column;
         }
 
-        /* สำหรับหน้าจอ Desktop ให้มีขอบและเงา */
         @media (min-width: 768px) {
             body { padding: 20px; }
             .slide-container {
@@ -49,11 +47,10 @@
             text-shadow: 0 0 10px rgba(34, 211, 238, 0.5); 
         }
 
-        /* Sidebar Tabs */
         .tab-btn {
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
-            border-bottom: 4px solid transparent; /* For mobile horizontal scroll */
+            border-bottom: 4px solid transparent; 
         }
         
         @media (min-width: 768px) {
@@ -82,14 +79,12 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* Output Card Styling */
         .output-card {
             background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Modal Overlay */
         .modal-overlay {
             display: none;
             position: absolute;
@@ -97,7 +92,7 @@
             background: rgba(5, 8, 16, 0.95);
             backdrop-filter: blur(5px);
             z-index: 100;
-            padding: 15px; /* Smaller padding for mobile */
+            padding: 15px; 
             flex-direction: column;
         }
         @media (min-width: 768px) {
@@ -105,13 +100,11 @@
         }
         .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease-in-out; }
 
-        /* Custom Scrollbar */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 6px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #64748b; }
         
-        /* Hide scrollbar for mobile tabs */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -130,7 +123,7 @@
         <!-- Main Workspace -->
         <main class="flex flex-col md:flex-row flex-1 overflow-hidden">
             
-            <!-- Sidebar (Horizontal on Mobile, Vertical on Desktop) -->
+            <!-- Sidebar -->
             <aside class="w-full md:w-72 bg-slate-900/80 border-b md:border-b-0 md:border-r border-slate-800 flex flex-row md:flex-col py-2 md:py-4 overflow-x-auto md:overflow-y-auto shrink-0 no-scrollbar custom-scrollbar">
                 <div class="hidden md:block px-6 pb-2 text-[10px] font-black text-slate-500 uppercase tracking-widest shrink-0">Select Module</div>
                 
@@ -161,42 +154,33 @@
                 
                 <!-- TAB 1 -->
                 <div id="tab1" class="tab-content active flex-col gap-3 md:gap-4">
-                    <!-- Theory Summary Header -->
                     <div class="shrink-0 mb-1 md:mb-2">
                         <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <span class="w-1.5 h-5 md:h-6 bg-cyan-400 rounded-full"></span>
                             <h2 class="text-lg md:text-2xl font-black text-white">Generative AI & Image Generation</h2>
                         </div>
                         <p class="text-slate-400 text-xs md:text-sm ml-4 pl-3 md:pl-4 border-l border-slate-700 leading-relaxed">
-                            วิวัฒนาการจาก Generative AI (เน้นสร้างเนื้อหา) สู่ Agentic AI (วิเคราะห์และลงมือทำ)
+                            วิวัฒนาการจาก Generative AI สู่ Agentic AI
                         </p>
                     </div>
 
-                    <!-- Output Card -->
                     <div class="output-card flex-1 rounded-xl md:rounded-2xl flex flex-col overflow-hidden relative">
-                        <!-- เปลี่ยนเป็น flex-col สำหรับมือถือ และ flex-row สำหรับ Desktop -->
                         <div class="flex flex-col md:flex-row h-full p-3 md:p-4 gap-4 md:gap-6 overflow-y-auto md:overflow-hidden custom-scrollbar">
                             
-                            <!-- 📌 ฝั่งซ้าย: รูปภาพผลงาน -->
                             <div class="w-full md:w-1/2 bg-slate-900/50 rounded-xl p-3 border border-slate-700 overflow-y-auto custom-scrollbar shrink-0 md:shrink flex flex-col">
                                 <div class="flex justify-between items-center mb-3 px-1">
                                     <div class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">📸 แกลเลอรีผลงาน</div>
-                                    <!-- ปุ่มสลับหน้า (Pagination) -->
                                     <div class="flex gap-1">
                                         <button id="btn-gal-1" onclick="switchGalleryPage(1)" class="w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 text-[10px] font-bold hover:bg-cyan-500/40 border border-cyan-500/50 transition-colors">1</button>
                                         <button id="btn-gal-2" onclick="switchGalleryPage(2)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold hover:bg-slate-700 border border-slate-700 transition-colors">2</button>
                                     </div>
                                 </div>
                                 
-                                <!-- PAGE 1 -->
                                 <div id="gallery-page-1" class="flex flex-col gap-3">
-                                    <!-- 📌 ภาพต้นฉบับ -->
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-slate-600 bg-black group">
                                         <div class="absolute top-2 left-2 bg-slate-800/90 text-slate-300 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">BEFORE (ต้นฉบับ)</div>
                                         <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Original" src="https://lh3.googleusercontent.com/d/1MMHfrcTrCj1ZRgo9Va8b8XQR7Pm-KGHE">
                                     </div>
-                                    
-                                    <!-- 📌 ภาพผลงาน 2 ภาพ -->
                                     <div class="grid grid-cols-2 gap-3">
                                         <div class="relative aspect-video rounded-lg overflow-hidden border border-cyan-500/50 shadow-[0_0_10px_rgba(6,182,212,0.15)] bg-black group">
                                             <div class="absolute top-2 left-2 bg-cyan-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">AFTER (ผลงาน 1)</div>
@@ -209,7 +193,6 @@
                                     </div>
                                 </div>
 
-                                <!-- PAGE 2 -->
                                 <div id="gallery-page-2" class="hidden flex-col gap-3">
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-cyan-500/50 shadow-[0_0_10px_rgba(6,182,212,0.15)] bg-black group">
                                         <div class="absolute top-2 left-2 bg-cyan-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">AFTER (ผลงาน 3)</div>
@@ -226,29 +209,28 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
-                            <!-- 📌 ฝั่งขวา: สรุปทฤษฎี -->
                             <div class="w-full md:w-1/2 flex flex-col overflow-y-visible md:overflow-y-auto custom-scrollbar md:pr-3 shrink-0 md:shrink">
                                 <h3 class="text-lg md:text-xl font-black text-cyan-400 mb-2 md:mb-3 leading-tight border-b border-slate-700 pb-2">หลักการทำงานของ Diffusion Model</h3>
                                 <div class="space-y-3 md:space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
-                                    <p>AI ไม่ได้ค้นหารูปจาก Google แล้วนำมาตัดแปะรวมกัน แต่ใช้หลักการ <strong class="text-white">Pattern Recognition</strong> เรียนรู้จากคู่ข้อมูลภาพและข้อความมหาศาล (Text-Image Pairs)</p>
-                                    <ul class="list-disc pl-5 space-y-1 md:space-y-2">
-                                        <li><strong class="text-white">Forward Process:</strong> การเพิ่ม Noise (ความขุ่นมัว) ลงในภาพจนภาพเดิมหายไปกลายเป็น Noise 100%</li>
-                                        <li><strong class="text-white">Reverse Process (Denoising):</strong> AI จะค่อยๆ ดึงความขุ่นมัวออก และจัดเรียงพิกเซลใหม่ทีละขั้น ตามคำสั่ง (Prompt) ที่เราป้อนเข้าไป จนกลายเป็นภาพใหม่ที่สอดคล้องกับความต้องการ</li>
+                                    <p>AI ใช้หลักการ Pattern Recognition เรียนรู้จากคู่ข้อมูลภาพและข้อความ (Text-Image Pairs)</p>
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li><strong class="text-white">Forward Process:</strong> การเพิ่ม Noise (ความขุ่นมัว) จนภาพกลายเป็น Noise 100%</li>
+                                        <li><strong class="text-white">Reverse Process:</strong> การดึงความขุ่นมัวออกทีละขั้น ตามคำสั่ง (Prompt) จนได้ภาพใหม่</li>
                                     </ul>
+                                </div>
+                                <!-- Tools & Methods Box -->
+                                <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                                    <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
+                                    <div class="text-xs text-slate-300 space-y-2">
+                                        <p><strong class="text-cyan-400">เครื่องมือที่ใช้:</strong> Midjourney, DALL-E 3, ChatGPT</p>
+                                        <p><strong class="text-cyan-400">วิธีการ:</strong> เริ่มต้นด้วยการเขียน Prompt แบบ Text-to-Image โดยกำหนดสิ่งที่ต้องการให้ชัดเจน จัดลำดับความสำคัญของคีย์เวิร์ดจากมากไปน้อย เพื่อให้ AI สร้างภาพตั้งต้นที่ตรงกับความต้องการมากที่สุด</p>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
-                    </div>
-
-                    <!-- Teacher Reference Button -->
-                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
-                        <button onclick="openModal('https://drive.google.com/file/d/11tuo_ZoMjCI80tu8QzTGhELbXGGAvv81/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
-                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 1 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
-                        </button>
                     </div>
                 </div>
 
@@ -259,107 +241,87 @@
                             <span class="w-1.5 h-5 md:h-6 bg-purple-400 rounded-full"></span>
                             <h2 class="text-lg md:text-2xl font-black text-white">Advanced Prompting & Art Theory</h2>
                         </div>
-                        <p class="text-slate-400 text-xs md:text-sm ml-4 pl-3 md:pl-4 border-l border-slate-700 leading-relaxed">
-                            ศาสตร์และศิลป์แห่งคำสั่ง การผสานตรรกะเข้ากับความคิดสร้างสรรค์
-                        </p>
                     </div>
 
                     <div class="output-card flex-1 rounded-xl md:rounded-2xl flex flex-col overflow-hidden relative">
                         <div class="flex flex-col md:flex-row h-full p-3 md:p-4 gap-4 md:gap-6 overflow-y-auto md:overflow-hidden custom-scrollbar">
                             
-                            <!-- 📌 ฝั่งซ้าย: รูปภาพผลงาน -->
                             <div class="w-full md:w-1/2 bg-slate-900/50 rounded-xl p-3 border border-slate-700 overflow-y-auto custom-scrollbar shrink-0 md:shrink flex flex-col">
                                 <div class="flex justify-between items-center mb-3 px-1">
                                     <div class="text-[10px] font-bold text-purple-400 uppercase tracking-widest">📸 แกลเลอรีผลงาน</div>
-                                    <!-- ปุ่มสลับหน้า (Pagination) -->
                                     <div class="flex gap-1 flex-wrap justify-end">
-                                        <button id="btn-tab2-gal-1" onclick="switchGalleryPageTab2(1)" class="w-6 h-6 rounded bg-purple-500/20 text-purple-400 text-[10px] font-bold hover:bg-purple-500/40 border border-purple-500/50 transition-colors">1</button>
-                                        <button id="btn-tab2-gal-2" onclick="switchGalleryPageTab2(2)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold hover:bg-slate-700 border border-slate-700 transition-colors">2</button>
-                                        <button id="btn-tab2-gal-3" onclick="switchGalleryPageTab2(3)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold hover:bg-slate-700 border border-slate-700 transition-colors">3</button>
-                                        <button id="btn-tab2-gal-4" onclick="switchGalleryPageTab2(4)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold hover:bg-slate-700 border border-slate-700 transition-colors">4</button>
+                                        <button id="btn-tab2-gal-1" onclick="switchGalleryPageTab2(1)" class="w-6 h-6 rounded bg-purple-500/20 text-purple-400 text-[10px] font-bold border border-purple-500/50">1</button>
+                                        <button id="btn-tab2-gal-2" onclick="switchGalleryPageTab2(2)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold border border-slate-700">2</button>
+                                        <button id="btn-tab2-gal-3" onclick="switchGalleryPageTab2(3)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold border border-slate-700">3</button>
+                                        <button id="btn-tab2-gal-4" onclick="switchGalleryPageTab2(4)" class="w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold border border-slate-700">4</button>
                                     </div>
                                 </div>
                                 
-                                <!-- PAGE 1 (Tab 2) -->
                                 <div id="tab2-gallery-page-1" class="flex flex-col gap-3">
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 1</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 1" src="https://lh3.googleusercontent.com/d/1m0FsocTTiohzrH1ehOnVg5_QM7wzznks">
+                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10">OUTPUT 1</div>
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1m0FsocTTiohzrH1ehOnVg5_QM7wzznks">
                                     </div>
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 2</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 2" src="https://lh3.googleusercontent.com/d/1g94_uatlNz8amRqopIFgJpQBCzGATJBt">
+                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10">OUTPUT 2</div>
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1g94_uatlNz8amRqopIFgJpQBCzGATJBt">
                                     </div>
                                 </div>
-
-                                <!-- PAGE 2 (Tab 2) -->
                                 <div id="tab2-gallery-page-2" class="hidden flex-col gap-3">
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 3</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 3" src="https://lh3.googleusercontent.com/d/1ehhti4YwelltOv6ml6KHNAafDgL5ITpk">
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1ehhti4YwelltOv6ml6KHNAafDgL5ITpk">
                                     </div>
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 4</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 4" src="https://lh3.googleusercontent.com/d/1zKhZ_U0nJ02wGu6NPxYN22j8x_u_ptxG">
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1zKhZ_U0nJ02wGu6NPxYN22j8x_u_ptxG">
                                     </div>
                                 </div>
-
-                                <!-- PAGE 3 (Tab 2) -->
                                 <div id="tab2-gallery-page-3" class="hidden flex-col gap-3">
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 5</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 5" src="https://lh3.googleusercontent.com/d/1UU3fzw4HUT4nVAi20ooM-9vM6KfvkhIN">
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1UU3fzw4HUT4nVAi20ooM-9vM6KfvkhIN">
                                     </div>
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 6</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 6" src="https://lh3.googleusercontent.com/d/1ySmpExUZbs-l7J-uRfeQnGEjeBpBKipU">
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1ySmpExUZbs-l7J-uRfeQnGEjeBpBKipU">
                                     </div>
                                 </div>
-
-                                <!-- PAGE 4 (Tab 2) -->
                                 <div id="tab2-gallery-page-4" class="hidden flex-col gap-3">
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-purple-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">OUTPUT 7</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Output 7" src="https://lh3.googleusercontent.com/d/1GrbQhPUmuZoY08tNcU3v6aqvedkl6XSY">
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1GrbQhPUmuZoY08tNcU3v6aqvedkl6XSY">
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 📌 ฝั่งขวา: สรุปทฤษฎี -->
                             <div class="w-full md:w-1/2 flex flex-col overflow-y-visible md:overflow-y-auto custom-scrollbar md:pr-3 shrink-0 md:shrink">
                                 <h3 class="text-lg md:text-xl font-black text-purple-400 mb-2 md:mb-3 leading-tight border-b border-slate-700 pb-2">โครงสร้าง S.E.L.C.S. และทฤษฎีสี</h3>
                                 <div class="space-y-3 md:space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
-                                    <p>การเขียน Prompt ให้ได้ภาพสมจริงระดับมืออาชีพ ต้องระบุรายละเอียด 5 องค์ประกอบหลักให้ชัดเจน:</p>
+                                    <p>การเขียน Prompt ให้ได้ภาพสมจริงระดับมืออาชีพ ต้องระบุรายละเอียดให้ชัดเจน:</p>
                                     <ul class="list-disc pl-5 space-y-1">
-                                        <li><strong class="text-white">Subject (ประธาน):</strong> ใคร หรืออะไรคือจุดสนใจหลัก</li>
-                                        <li><strong class="text-white">Environment (สภาพแวดล้อม):</strong> สถานที่ บริบทแวดล้อม</li>
-                                        <li><strong class="text-white">Lighting (แสง):</strong> เช่น Golden hour, Cinematic lighting</li>
-                                        <li><strong class="text-white">Camera (กล้อง):</strong> มุมกล้อง เช่น Eye-level, Low angle</li>
-                                        <li><strong class="text-white">Style (สไตล์):</strong> เช่น Photorealistic, 3D Render</li>
+                                        <li><strong class="text-white">Subject & Environment:</strong> ประธานหลัก และ สภาพแวดล้อม</li>
+                                        <li><strong class="text-white">Lighting & Camera:</strong> การจัดแสง และมุมกล้อง</li>
+                                        <li><strong class="text-white">Style:</strong> สไตล์ของภาพ เช่น Photorealistic</li>
                                     </ul>
+                                    <p><strong class="text-white">ทฤษฎีสี (Color Theory):</strong> การระบุโทนสี (Color Palette) เช่น โทนอุ่น โทนเย็น หรือสีคู่ตรงข้าม (Complementary) ใน Prompt เพื่อควบคุม Mood & Tone และสร้างความโดดเด่นให้กับภาพ</p>
+                                </div>
+                                <!-- Tools & Methods Box -->
+                                <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                                    <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
+                                    <div class="text-xs text-slate-300 space-y-2">
+                                        <p><strong class="text-purple-400">เครื่องมือที่ใช้:</strong> Midjourney (เน้นการใช้พารามิเตอร์เช่น --ar, --v), DALL-E</p>
+                                        <p><strong class="text-purple-400">วิธีการ:</strong> ใช้โครงสร้าง S.E.L.C.S. เป็นแกนหลักในการเขียน Prompt จากนั้นเติมคำศัพท์ทางศิลปะและทฤษฎีสีลงไป เพื่อบังคับให้ AI จัดองค์ประกอบภาพและแสงเงาให้ออกมาเป็นมืออาชีพ</p>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-
-                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
-                        <button onclick="openModal('https://drive.google.com/file/d/146be0hhrbmh53PQiw6NmquOsycKWgTr6/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-purple-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
-                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 2 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
-                        </button>
-                    </div>
                 </div>
 
-                <!-- TAB 3 -->
+                <!-- TAB 3 (VIDEO & AUDIO) -->
                 <div id="tab3" class="tab-content flex-col gap-3 md:gap-4">
                     <div class="shrink-0 mb-1 md:mb-2">
                         <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <span class="w-1.5 h-5 md:h-6 bg-pink-400 rounded-full"></span>
                             <h2 class="text-lg md:text-2xl font-black text-white">Video & Audio Generation</h2>
                         </div>
-                        <p class="text-slate-400 text-xs md:text-sm ml-4 pl-3 md:pl-4 border-l border-slate-700 leading-relaxed">
-                            การก้าวข้ามจากภาพนิ่งสู่ภาพเคลื่อนไหว (Video) และการใส่ชีวิตชีวาด้วยเสียง (Audio)
-                        </p>
                     </div>
 
                     <div class="output-card flex-1 rounded-xl md:rounded-2xl flex flex-col overflow-hidden relative">
@@ -369,24 +331,28 @@
                                 <div class="text-[10px] font-bold text-pink-400 mb-3 uppercase tracking-widest px-1">🎥 แกลเลอรีสื่อมัลติมีเดีย (Video & Audio)</div>
                                 <div class="grid grid-cols-1 gap-4"> 
                                     
-                                    <!-- 📌 ภาพโจทย์ -->
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">โจทย์ต้นฉบับ</div>
-                                        <img class="w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Prompt" src="https://lh3.googleusercontent.com/d/1LIN5lesP95W0bBdCGfs2PEn7hRDVtXD7">
+                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10">โจทย์ต้นฉบับ</div>
+                                        <img class="w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1LIN5lesP95W0bBdCGfs2PEn7hRDVtXD7">
                                     </div>
 
-                                    <!-- 📌 วิดีโอ/เสียงผลงาน -->
+                                    <!-- 📌 วิดีโอ (ใช้ Video Tag) -->
                                     <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงานวิดีโอ (OUTPUT)</div>
-                                        <a href="https://drive.google.com/file/d/1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU/view" target="_blank" class="block w-full h-full bg-slate-700 flex items-center justify-center rounded-lg hover:bg-slate-600">
-    <span class="text-white font-bold">▶ กดเพื่อดูวิดีโอ (คลิกเปิดหน้าใหม่)</span>
-</a>
+                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 z-20">ผลงานวิดีโอ (OUTPUT)</div>
+                                        <video class="w-full h-full object-cover relative z-10" controls>
+                                            <source src="https://drive.google.com/uc?export=download&id=1a-a6pot4HPmzg9E9V8lFZGTCQzcA69nU" type="video/mp4">
+                                            Browser ของคุณไม่รองรับการเล่นวิดีโอ
+                                        </video>
                                     </div>
 
-                                    <!-- 📌 ผลงานเสียง -->
-                                    <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-black">
-                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงานเสียง (AUDIO)</div>
-                                        <iframe class="w-full h-full border-0" src="https://drive.google.com/file/d/1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    <!-- 📌 เสียง (ใช้ Audio Tag) -->
+                                    <div class="relative aspect-video rounded-lg overflow-hidden border border-pink-500/50 shadow-[0_0_10px_rgba(244,114,182,0.15)] bg-slate-800 flex flex-col justify-center items-center p-6">
+                                        <div class="absolute top-2 left-2 bg-pink-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10">ผลงานเสียง (AUDIO)</div>
+                                        <div class="text-4xl mb-4">🎵</div>
+                                        <audio class="w-full" controls>
+                                            <source src="https://drive.google.com/uc?export=download&id=1t7Oe_O6bOfuD5Vt_ar0Kh01QhwuogNVe" type="audio/mpeg">
+                                            Browser ของคุณไม่รองรับการเล่นเสียง
+                                        </audio>
                                     </div>
 
                                 </div>
@@ -395,19 +361,20 @@
                             <div class="w-full md:w-1/2 flex flex-col overflow-y-visible md:overflow-y-auto custom-scrollbar md:pr-3 shrink-0 md:shrink">
                                 <h3 class="text-lg md:text-xl font-black text-pink-400 mb-2 md:mb-3 leading-tight border-b border-slate-700 pb-2">หลักการสร้างวิดีโอและเสียงด้วย AI</h3>
                                 <div class="space-y-3 md:space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
-                                    <p><strong class="text-white">Video Generation:</strong><br>
-                                    การเปลี่ยนภาพนิ่งให้เคลื่อนไหว (Image-to-Video) หรือสร้างวิดีโอจากข้อความ (Text-to-Video) โดยกำหนดมุมกล้องและสไตล์ให้สอดคล้องกับเรื่องราว</p>
-                                    <p><strong class="text-white">Audio & Voiceover:</strong><br>
-                                    การใช้ AI สังเคราะห์เสียงพูดที่เสมือนจริง มีอารมณ์และจังหวะเป็นธรรมชาติ รวมถึงการสร้างดนตรีประกอบและซาวด์เอฟเฟกต์ตามต้องการ</p>
+                                    <p><strong class="text-white">Video Generation:</strong> การเปลี่ยนภาพนิ่งให้เคลื่อนไหว (Image-to-Video) ควบคู่กับการกำหนดมุมกล้องและทิศทาง</p>
+                                    <p><strong class="text-white">Audio & Voiceover:</strong> การใช้ AI สังเคราะห์เสียงพูดที่เสมือนจริง มีอารมณ์และจังหวะเป็นธรรมชาติ</p>
+                                </div>
+                                <!-- Tools & Methods Box -->
+                                <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                                    <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
+                                    <div class="text-xs text-slate-300 space-y-2">
+                                        <p><strong class="text-pink-400">เครื่องมือที่ใช้:</strong> Runway Gen-2, Pika, ElevenLabs, Suno</p>
+                                        <p><strong class="text-pink-400">วิธีการ:</strong> นำภาพนิ่งที่สร้างเสร็จจาก Step ก่อนหน้ามาเป็นสารตั้งต้น (Image-to-Video) ควบคุมการเคลื่อนไหวผ่าน Text Prompt เล็กน้อย จากนั้นใช้เครื่องมือ Text-to-Speech สังเคราะห์เสียงบรรยายเนื้อหา นำมาประกอบกันให้สมบูรณ์</p>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
-                    </div>
-                <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
-                        <button onclick="openModal('https://drive.google.com/file/d/10X2kucr4GFW7_nVANhgGB63VsMrr3CGM/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-pink-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
-                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 3 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
-                        </button>
                     </div>
                 </div>
 
@@ -418,9 +385,6 @@
                             <span class="w-1.5 h-5 md:h-6 bg-green-400 rounded-full"></span>
                             <h2 class="text-lg md:text-2xl font-black text-white">Infographic Design</h2>
                         </div>
-                        <p class="text-slate-400 text-xs md:text-sm ml-4 pl-3 md:pl-4 border-l border-slate-700 leading-relaxed">
-                            การออกแบบสื่อนำเสนอข้อมูลที่เข้าใจง่ายและดึงดูดสายตาด้วย AI
-                        </p>
                     </div>
 
                     <div class="output-card flex-1 rounded-xl md:rounded-2xl flex flex-col overflow-hidden relative">
@@ -430,12 +394,10 @@
                                 <div class="text-[10px] font-bold text-green-400 mb-3 uppercase tracking-widest px-1">📸 แกลเลอรีผลงาน (Infographic)</div>
                                 <div class="flex flex-col gap-4 h-full overflow-y-auto custom-scrollbar pr-1 pb-2">
                                     <div class="relative aspect-[4/3] md:aspect-auto md:h-[280px] shrink-0 rounded-lg overflow-hidden border border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-green-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงาน Infographic 1</div>
-                                        <img class="absolute inset-0 w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Infographic 1" src="https://lh3.googleusercontent.com/d/1MdxGUyxnYkqGhdmmiCTWTwr7K7jgrceM">
+                                        <img class="absolute inset-0 w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1MdxGUyxnYkqGhdmmiCTWTwr7K7jgrceM">
                                     </div>
                                     <div class="relative aspect-[4/3] md:aspect-auto md:h-[280px] shrink-0 rounded-lg overflow-hidden border border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-green-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงาน Infographic 2</div>
-                                        <img class="absolute inset-0 w-full h-full object-contain bg-slate-800 opacity-90 group-hover:opacity-100 transition" alt="Infographic 2" src="https://lh3.googleusercontent.com/d/1FxpgJ8F3AXbrHytl3KQPOCJT3QKPwGv0">
+                                        <img class="absolute inset-0 w-full h-full object-contain bg-slate-800" src="https://lh3.googleusercontent.com/d/1FxpgJ8F3AXbrHytl3KQPOCJT3QKPwGv0">
                                     </div>
                                 </div>
                             </div>
@@ -443,22 +405,27 @@
                             <div class="w-full md:w-1/2 flex flex-col overflow-y-visible md:overflow-y-auto custom-scrollbar md:pr-3 shrink-0 md:shrink">
                                 <h3 class="text-lg md:text-xl font-black text-green-400 mb-2 md:mb-3 leading-tight border-b border-slate-700 pb-2">กฎ 10-20-70 และหลักการ 5V</h3>
                                 <div class="space-y-3 md:space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
-                                    <p><strong class="text-white">กฎทอง 10-20-70:</strong></p>
+                                    <p><strong class="text-white">กฎทอง 10-20-70:</strong> 10% หัวข้อหลัก, 20% ภาพ/ไอคอน, 70% เนื้อหาหลัก</p>
+                                    <p><strong class="text-white">หลักการ 5V สำหรับงาน Infographic:</strong></p>
                                     <ul class="list-disc pl-5 space-y-1">
-                                        <li><strong>10% หัวข้อหลัก</strong></li>
-                                        <li><strong>20% ภาพ / ไอคอน</strong></li>
-                                        <li><strong>70% เนื้อหาหลัก</strong></li>
+                                        <li><strong>Value:</strong> เนื้อหามีประโยชน์และมีคุณค่า</li>
+                                        <li><strong>Visual:</strong> การออกแบบสวยงาม ดึงดูดสายตา</li>
+                                        <li><strong>Veracity:</strong> ข้อมูลมีความถูกต้องและเชื่อถือได้</li>
+                                        <li><strong>Variety:</strong> นำเสนอข้อมูลในหลากหลายมิติอย่างลงตัว</li>
+                                        <li><strong>Velocity:</strong> สื่อสารให้เข้าใจได้รวดเร็วทันที</li>
                                     </ul>
+                                </div>
+                                <!-- Tools & Methods Box -->
+                                <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                                    <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
+                                    <div class="text-xs text-slate-300 space-y-2">
+                                        <p><strong class="text-green-400">เครื่องมือที่ใช้:</strong> Canva, ChatGPT (สรุปข้อมูล)</p>
+                                        <p><strong class="text-green-400">วิธีการ:</strong> สั่งให้ AI Language Model สรุปข้อมูลที่ซับซ้อนให้ออกมาเป็น Bullet points จากนั้นนำไปจัดวางบนเลย์เอาต์ตามกฎ 10-20-70 โดยเว้นพื้นที่ว่าง (White space) ให้สายตาได้พัก และคุมสัดส่วนเนื้อหาให้พอดี</p>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
-                    </div>
-
-                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
-                        <button onclick="openModal('https://drive.google.com/file/d/1coAHcyzcUSUPjuYyIXvygkVHc2qhzkKL/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-green-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
-                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 4 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
-                        </button>
                     </div>
                 </div>
 
@@ -469,9 +436,6 @@
                             <span class="w-1.5 h-5 md:h-6 bg-yellow-400 rounded-full"></span>
                             <h2 class="text-lg md:text-2xl font-black text-white">AI Ethics & Cyber Security</h2>
                         </div>
-                        <p class="text-slate-400 text-xs md:text-sm ml-4 pl-3 md:pl-4 border-l border-slate-700 leading-relaxed">
-                            การใช้งาน AI อย่างมีความรับผิดชอบ และตระหนักรู้ถึงความปลอดภัยไซเบอร์
-                        </p>
                     </div>
 
                     <div class="output-card flex-1 rounded-xl md:rounded-2xl flex flex-col overflow-hidden relative">
@@ -480,11 +444,12 @@
                             <div class="w-full md:w-1/2 bg-slate-900/50 rounded-xl p-3 border border-slate-700 overflow-y-auto custom-scrollbar shrink-0 md:shrink">
                                 <div class="text-[10px] font-bold text-yellow-400 mb-3 uppercase tracking-widest px-1">🎥 แกลเลอรีผลงาน (Ethics & Security)</div>
                                 <div class="flex flex-col gap-3 h-full">
-                                    <div class="relative h-64 md:h-full min-h-[250px] rounded-lg overflow-hidden border border-yellow-500/50 shadow-[0_0_10px_rgba(234,179,8,0.15)] bg-black group">
-                                        <div class="absolute top-2 left-2 bg-yellow-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 backdrop-blur-sm shadow-md">ผลงานวิดีโอ</div>
-                                        <a href="https://drive.google.com/file/d/19r_-ej1yHVXvqufIkzALkH4v8bGDqVnS/view" target="_blank" class="block w-full h-full bg-slate-700 flex items-center justify-center rounded-lg hover:bg-slate-600">
-    <span class="text-white font-bold">▶ กดเพื่อดูวิดีโอ (คลิกเปิดหน้าใหม่)</span>
-</a>
+                                    <!-- 📌 วิดีโอ (ใช้ Video Tag) -->
+                                    <div class="relative h-64 md:h-full min-h-[250px] rounded-lg overflow-hidden border border-yellow-500/50 shadow-[0_0_10px_rgba(234,179,8,0.15)] bg-black">
+                                        <div class="absolute top-2 left-2 bg-yellow-500/90 text-slate-900 text-[9px] font-bold px-2 py-1 rounded z-10 z-20">ผลงานวิดีโอ</div>
+                                        <video class="w-full h-full object-cover relative z-10" controls>
+                                            <source src="https://drive.google.com/uc?export=download&id=19r_-ej1yHVXvqufIkzALkH4v8bGDqVnS" type="video/mp4">
+                                        </video>
                                     </div>
                                 </div>
                             </div>
@@ -492,65 +457,40 @@
                             <div class="w-full md:w-1/2 flex flex-col overflow-y-visible md:overflow-y-auto custom-scrollbar md:pr-3 shrink-0 md:shrink">
                                 <h3 class="text-lg md:text-xl font-black text-yellow-400 mb-2 md:mb-3 leading-tight border-b border-slate-700 pb-2">ความเสี่ยงและการรู้เท่าทัน AI</h3>
                                 <div class="space-y-3 md:space-y-4 text-slate-300 text-xs md:text-sm leading-relaxed">
-                                    <p><strong class="text-white">ภาพหลอน AI (Hallucination):</strong><br>
-                                    AI ตอบได้อย่างมั่นใจ แต่สร้างข้อมูลที่ไม่มีอยู่จริงหรือบิดเบือนความจริง</p>
-                                    <p><strong class="text-white">หลักการ Human in the Loop:</strong><br>
-                                    AI เป็นเพียงผู้ช่วย แต่มนุษย์ต้องเป็นผู้ตัดสินใจขั้นสุดท้าย</p>
+                                    <p><strong class="text-white">ภาพหลอน AI (Hallucination):</strong> AI สร้างข้อมูลที่ไม่มีอยู่จริงหรือบิดเบือนความจริง</p>
+                                    <p><strong class="text-white">หลักการ Human in the Loop:</strong> AI เป็นเพียงผู้ช่วย แต่มนุษย์ต้องเป็นผู้ตัดสินใจขั้นสุดท้าย</p>
+                                </div>
+                                <!-- Tools & Methods Box -->
+                                <div class="mt-4 p-3 bg-slate-800/80 rounded-lg border border-slate-700">
+                                    <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">🛠️ เครื่องมือ & วิธีการ</h4>
+                                    <div class="text-xs text-slate-300 space-y-2">
+                                        <p><strong class="text-yellow-400">หลักการที่ใช้:</strong> Fact-Checking, การคิดเชิงวิพากษ์ (Critical Thinking)</p>
+                                        <p><strong class="text-yellow-400">วิธีการ:</strong> ตรวจสอบแหล่งอ้างอิงของข้อมูล (Cross-check) ที่ได้จาก AI ทุกครั้งก่อนนำไปใช้งานจริง และระมัดระวังการป้อนข้อมูลความลับหรือข้อมูลส่วนบุคคล (PDPA) ลงในระบบ AI แบบเปิด</p>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-
-                    <div class="shrink-0 pt-1 md:pt-2 flex justify-end">
-                        <button onclick="openModal('https://drive.google.com/file/d/13K7fyEJu6POoRUF7D6vcta8Ri_-fBMdF/preview')" class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-yellow-400 hover:bg-slate-800 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-slate-700 transition-all text-[10px] md:text-xs font-medium">
-                            <span class="text-sm md:text-base">📚</span> อ้างอิง: สไลด์ทฤษฎีอาจารย์ Day 5 <span class="text-[8px] md:text-[9px] uppercase tracking-widest ml-1 md:ml-2 bg-slate-800 px-2 py-0.5 rounded">คลิกขยายดู</span>
-                        </button>
-                    </div>
                 </div>
 
             </section>
         </main>
-        
-        <!-- THE MODAL -->
-        <div id="pdfModal" class="modal-overlay">
-            <div class="flex justify-between items-center mb-4 shrink-0">
-                <div>
-                    <h3 class="text-lg md:text-2xl font-bold text-white tracking-wider">📚 เอกสารอ้างอิง</h3>
-                    <p class="text-slate-400 text-xs md:text-sm">สไลด์ประกอบการอบรมจากท่านอาจารย์</p>
-                </div>
-                <button onclick="closeModal()" class="w-8 h-8 md:w-10 md:h-10 bg-rose-600 hover:bg-rose-500 text-white rounded-full flex items-center justify-center text-lg md:text-xl font-bold transition-colors shadow-lg">
-                    ✕
-                </button>
-            </div>
-            <!-- Iframe Container -->
-            <div class="flex-grow w-full bg-white rounded-xl overflow-hidden border-2 border-slate-700 shadow-2xl relative">
-                <div class="absolute inset-0 flex items-center justify-center text-slate-400 text-sm font-bold bg-slate-100 z-0">
-                    กำลังโหลดเอกสาร...
-                </div>
-                <iframe id="pdfIframe" src class="w-full h-full relative z-10 border-0"></iframe>
-            </div>
-        </div>
-
     </div>
 
     <script>
-        // เปลี่ยนแท็บ
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
             document.getElementById('tab' + tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
 
-        // เปลี่ยนหน้าแกลเลอรี Tab 1
         function switchGalleryPage(page) {
             const page1 = document.getElementById('gallery-page-1');
             const page2 = document.getElementById('gallery-page-2');
             const btn1 = document.getElementById('btn-gal-1');
             const btn2 = document.getElementById('btn-gal-2');
-
             const activeClass = "w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 text-[10px] font-bold hover:bg-cyan-500/40 border border-cyan-500/50 transition-colors";
             const inactiveClass = "w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold hover:bg-slate-700 border border-slate-700 transition-colors";
 
@@ -567,48 +507,20 @@
             }
         }
 
-        // เปลี่ยนหน้าแกลเลอรี Tab 2
         function switchGalleryPageTab2(page) {
             const totalPages = 4;
-            const activeClass = "w-6 h-6 rounded bg-purple-500/20 text-purple-400 text-[10px] font-bold hover:bg-purple-500/40 border border-purple-500/50 transition-colors";
-            const inactiveClass = "w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold hover:bg-slate-700 border border-slate-700 transition-colors";
+            const activeClass = "w-6 h-6 rounded bg-purple-500/20 text-purple-400 text-[10px] font-bold border border-purple-500/50";
+            const inactiveClass = "w-6 h-6 rounded bg-slate-800 text-slate-400 text-[10px] font-bold border border-slate-700";
 
             for (let i = 1; i <= totalPages; i++) {
                 const pageEl = document.getElementById('tab2-gallery-page-' + i);
                 const btnEl = document.getElementById('btn-tab2-gal-' + i);
-                
                 if (pageEl) {
-                    if (i === page) {
-                        pageEl.classList.remove('hidden');
-                        pageEl.classList.add('flex');
-                    } else {
-                        pageEl.classList.add('hidden');
-                        pageEl.classList.remove('flex');
-                    }
+                    if (i === page) { pageEl.classList.remove('hidden'); pageEl.classList.add('flex'); } 
+                    else { pageEl.classList.add('hidden'); pageEl.classList.remove('flex'); }
                 }
-                
-                if (btnEl) {
-                    btnEl.className = (i === page) ? activeClass : inactiveClass;
-                }
+                if (btnEl) btnEl.className = (i === page) ? activeClass : inactiveClass;
             }
-        }
-
-        // เปิด Modal
-        function openModal(pdfUrl) {
-            const modal = document.getElementById('pdfModal');
-            const iframe = document.getElementById('pdfIframe');
-            
-            iframe.src = pdfUrl; 
-            modal.classList.add('active');
-        }
-
-        // ปิด Modal
-        function closeModal() {
-            const modal = document.getElementById('pdfModal');
-            const iframe = document.getElementById('pdfIframe');
-            
-            modal.classList.remove('active');
-            setTimeout(() => { iframe.src = ''; }, 300);
         }
     </script>
 </body>
